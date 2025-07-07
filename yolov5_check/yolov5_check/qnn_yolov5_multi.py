@@ -298,10 +298,9 @@ class Detect:
 
         return np.concatenate(z, 1)
 
-
 def yolo_detect(model_name,resource_dir,input_frame):
     """
-        model_name = "cutoff_yolov5s_sigmoid_w8a8.qnn229.ctx.bin" #//!模型选择
+        model_name = "cutoff_yolov5s_sigmoid_w8a8.qnn229.ctx.bin"   #//!模型选择
         resource_dir = '/home/aidlux/yolov5/data/qnn_yolov5_multi/' #//!model文件地址
         """
     aidlite.set_log_level(aidlite.LogLevel.INFO)
@@ -506,8 +505,8 @@ def yolo_detect(model_name,resource_dir,input_frame):
     det_pred[:, :4] = det_pred[:, :4] * scale
     # 提取坐标并计算中心点
     x, y, w, h = det_pred[0, :4].astype(int)
-    center_x = x + w// 2
-    center_y = y + h// 2
+    # center_x = x + w// 2
+    # center_y = y + h// 2
 
     result = interpreter.destory()
     if result != 0:

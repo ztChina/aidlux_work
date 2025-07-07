@@ -46,22 +46,15 @@ class YOLODetectorNode(Node):
         frame = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
         bbox = self.detect_person(frame)
         if bbox:
-            x,y,w,h = bbox
-            # //?输出中心点坐标，但是出现问题，center数据类型转换问题
-            # center.header = msg.header  # 记得设置时间戳和坐标系
-            # center = PointStamped()
-            # center.x = x + w / 2
-            # center.y = y + h / 2
-            # center.z = 0.0
-            # bbox_msg = BoundingBox2D()
-            # bbox_msg.center = center
-            # bbox_msg.size_x = w
-            # bbox_msg.size_y = h
-            # detection_msg = Detection2D()
-            # detection_msg.header = msg.header
-            # detection_msg.bbox = bbox_msg
-            # self.publisher.publish(center)
-            # self.get_logger().info(f" 正在检测中，检测中心位置：({center.x:.1f}, {center.y:.1f})")
+            x,y,w,h = bbox  #x,y是左上角坐标，w,h是宽高
+            # //?输出中心点坐标，但是出现问题，center数据类型转换问题         
+            center = PointStamped()
+            center.header = msg.header  # 记得设置时间戳和坐标系
+            center.point.x = float(x + w / 2)
+            center.point.y = float(y + h / 2)
+            center.point.z = 0.0
+            self.publisher.publish(center)
+            self.get_logger().info(f" 正在检测中，检测中心位置：({center.point.x:.1f}, {center.point.y:.1f})")
 
             # 可选：画出检测框并发布图像
             cv2.rectangle(frame, (x, y), (x+w, y+h), (0,255,0), 2)
@@ -73,7 +66,6 @@ class YOLODetectorNode(Node):
     def detect_person(self, frame):
         model_name = "cutoff_yolov5s_sigmoid_w8a8.qnn229.ctx.bin"       #//!模型选择
         resource_dir = get_package_share_directory('yolov5_check')
-        print(resource_dir + '\r\n')
 
         # 模拟或调用 YOLO 推理模型
         return yolo_detect(model_name,resource_dir,frame)# 实际调用模型推理结果
