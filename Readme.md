@@ -1,0 +1,3 @@
+该文件夹是aidlux工作的所有备份
+
+yolo_check是yolo实现检测之后的备份，还没有彻底完成ros节点化
