@@ -1,3 +1,5 @@
+STM32部分
+
 本项目嵌入式部分完成了串口的标准库重定向以及Micro库的重定向
 
 本项目全部采用STM32CubeMX现代化HAL库开发
@@ -11,3 +13,6 @@ STM32F407ZGT6实现LCD V3屏幕移植
 motor文件夹实现STM32F407ZGT6裸机编码器测速电机PWM驱动
 
 sensor_test_final实现所有传感器的整合以及驱动
+
+
+
