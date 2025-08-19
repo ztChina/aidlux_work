@@ -14,5 +14,5 @@ motor文件夹实现STM32F407ZGT6裸机编码器测速电机PWM驱动
 
 sensor_test_final实现所有传感器的整合以及驱动
 
-
+PCB文件（嘉立创EDA）
 
