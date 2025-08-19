@@ -1,0 +1,27 @@
+--cpu=Cortex-M4.fp.sp
+"hx711\startup_stm32f407xx.o"
+"hx711\main.o"
+"hx711\gpio.o"
+"hx711\usart.o"
+"hx711\stm32f4xx_it.o"
+"hx711\stm32f4xx_hal_msp.o"
+"hx711\bsp_hx711.o"
+"hx711\stm32f4xx_hal_uart.o"
+"hx711\stm32f4xx_hal_rcc.o"
+"hx711\stm32f4xx_hal_rcc_ex.o"
+"hx711\stm32f4xx_hal_flash.o"
+"hx711\stm32f4xx_hal_flash_ex.o"
+"hx711\stm32f4xx_hal_flash_ramfunc.o"
+"hx711\stm32f4xx_hal_gpio.o"
+"hx711\stm32f4xx_hal_dma_ex.o"
+"hx711\stm32f4xx_hal_dma.o"
+"hx711\stm32f4xx_hal_pwr.o"
+"hx711\stm32f4xx_hal_pwr_ex.o"
+"hx711\stm32f4xx_hal_cortex.o"
+"hx711\stm32f4xx_hal.o"
+"hx711\stm32f4xx_hal_exti.o"
+"hx711\system_stm32f4xx.o"
+--library_type=microlib --strict --scatter "hx711\hx711.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "hx711.map" -o hx711\hx711.axf
