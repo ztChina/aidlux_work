@@ -1,0 +1,62 @@
+slam_toolbox:
+  ros__parameters:
+    ##############################################
+    ###               基础设置                 ###
+    ##############################################
+    solver_plugin: "slam_toolbox::CeresSolver"  # 使用Ceres求解器
+    mode: "mapping"                             # 模式：mapping（建图）/localization（定位）
+    debug_logging: false                        # 关闭调试日志以减少输出
+
+    # 坐标系设置（必须与URDF一致）
+    odom_frame: "odom"                          # 里程计坐标系
+    map_frame: "map"                            # 地图坐标系
+    base_frame: "base_link"                # 机器人基坐标系
+    scan_topic: "/scan"                         # 激光雷达话题（A1默认）
+
+    ##############################################
+    ###          激光雷达参数（A1专用）        ###
+    ##############################################
+    min_laser_range: 0.2      # 最小有效距离（A1实际有效>0.15m，避免噪声）
+    max_laser_range: 12.0      # 最大有效距离（A1标称12m）
+    throttle_scans: 1          # 处理所有扫描（A1帧率仅5-7Hz，无需跳过）
+
+    ##############################################
+    ###            地图与分辨率设置            ###
+    ##############################################
+    resolution: 0.03           # 地图分辨率（米/像素），室内推荐0.05
+    map_update_interval: 3.0   # 地图更新间隔（秒），平衡实时性和计算量
+    occupancy_threshold: 0.65  # 占据概率阈值（0-1），值越大障碍物越"硬"
+
+    ##############################################
+    ###          扫描匹配优化（A1低帧率）      ###
+    ##############################################
+    link_match_minimum_response_fine: 0.15  # 精细匹配最小响应值（抑制噪声）
+    correlation_search_space_dimension: 0.3  # 相关搜索空间大小（米）
+    correlation_search_space_resolution: 0.02 # 搜索分辨率（米）
+    
+    # 运动约束（适合A1的低速移动机器人）
+    minimum_travel_distance: 0.1  # 最小移动距离（米）触发处理
+    minimum_travel_heading: 0.2   # 最小旋转角度（弧度）触发处理
+
+    ##############################################
+    ###            闭环检测参数                ###
+    ##############################################
+    do_loop_closing: true        # 启用闭环检测
+    loop_search_maximum_distance: 8.0  # 闭环搜索最大距离（米）
+    loop_match_minimum_response_fine: 0.5  # 闭环匹配最小置信度
+    loop_search_space_resolution: 0.05    # 闭环搜索分辨率
+
+    ##############################################
+    ###           Ceres求解器参数              ###
+    ##############################################
+    ceres_linear_solver: "SPARSE_NORMAL_CHOLESKY"  # 线性求解器类型
+    ceres_preconditioner: "SCHUR_JACOBI"           # 预处理方法
+    ceres_loss_function: "HuberLoss"               # 鲁棒损失函数（抗噪声）
+
+    ##############################################
+    ###           高级性能调优                 ###
+    ##############################################
+    transform_publish_period: 0.02  # TF发布周期（秒）
+    tf_buffer_duration: 10.0       # TF缓存时间（秒）
+    stack_size_to_use: 16777216    # 堆栈大小（字节），大地图需增加
+    enable_interactive_mode: true  # 允许rviz交互式调整

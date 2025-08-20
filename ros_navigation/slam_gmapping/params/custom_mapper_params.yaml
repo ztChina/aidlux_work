@@ -1,0 +1,34 @@
+slam_toolbox:
+  ros__parameters:
+    # 基本配置
+    odom_frame: odom
+    map_frame: map
+    base_frame: base_link
+    scan_topic: /scan
+    
+    # 雷达参数
+    max_laser_range: 8.0  # A1最大范围
+    minimum_time_interval: 0.5
+    transform_timeout: 0.0
+    
+    # 优化参数
+    solver_plugin: solver_plugins::CeresSolver
+    ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
+    ceres_preconditioner: SCHUR_JACOBI
+    ceres_trust_strategy: LEVENBERG_MARQUARDT
+    ceres_dogleg_type: TRADITIONAL_DOGLEG
+    resolution: 0.05
+    
+    # 粒子滤波参数
+    particles: 50
+    
+    # 更新阈值
+    transform_publish_period: 0.02  # 50Hz
+    map_update_interval: 5.0
+    
+    # 回环检测
+    loop_search_maximum_distance: 10.0
+    loop_match_minimum_chain_size: 10
+    loop_match_maximum_variance_coarse: 3.0
+    loop_match_minimum_response_coarse: 0.1
+    loop_match_minimum_response_fine: 0.5
