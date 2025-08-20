@@ -1,0 +1,3 @@
+/home/aidlux/yolov8_2/cpp/build/CMakeFiles/qnn_yolov5_multi.dir
+/home/aidlux/yolov8_2/cpp/build/CMakeFiles/edit_cache.dir
+/home/aidlux/yolov8_2/cpp/build/CMakeFiles/rebuild_cache.dir
