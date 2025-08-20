@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="first_robot">
+
+    <!-- ?????????0.5 ??????????????? -->
+    <xacro:property name="scale" value="1.0" />
+
+    <!-- Base Footprint -->
+
+    <!-- Base Link -->
+    <link name="base_link">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="${0.33*scale} ${0.22*scale} ${0.062*scale}"/>
+            </geometry>
+            <material name="red">
+                <color rgba="1.0 0.0 0.0 0.5"/>
+            </material>
+        </visual>
+    </link>
+
+    <!-- SC Base Link -->
+    <link name="sc_base_link">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.23 0.22 0.049"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0.3 0.2 0.5 0.7"/>
+            </material>
+        </visual>
+    </link>
+
+    <!-- HP Link (Cylinder) -->
+    <link name="hp_link">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <cylinder radius="${0.05*scale}" length="${0.1*scale}"/>
+            </geometry>
+            <material name="white">
+                <color rgba="1.0 1.0 1.0 0.5"/>
+            </material>
+        </visual>
+    </link>
+
+    <!-- Laser Support Link -->
+    <link name="lase_support_link">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="${0.005*scale} ${0.005*scale} ${0.03*scale}"/>
+            </geometry>
+            <material name="red">
+                <color rgba="1.0 0.0 0.0 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <!-- Laser Link -->
+    <link name="laser">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <cylinder radius="${0.03*scale}" length="${0.02*scale}"/>
+            </geometry>
+            <material name="yallow">
+                <color rgba="1.0 1.0 0.0 0.5"/>
+            </material>
+        </visual>
+    </link>
+
+    <!-- Wheels (Left and Right) -->
+    <link name="zuo_wheel_link">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0"/>
+            <geometry>
+                <cylinder radius="${0.03*scale}" length="${0.02*scale}"/>
+            </geometry>
+            <material name="white">
+                <color rgba="1.0 1.0 1.0 0.5"/>
+            </material>
+        </visual>
+    </link>
+
+    <link name="you_wheel_link">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0"/>
+            <geometry>
+                <cylinder radius="${0.03*scale}" length="${0.02*scale}"/>
+            </geometry>
+            <material name="white">
+                <color rgba="1.0 1.0 1.0 0.5"/>
+            </material>
+        </visual>
+    </link>
+
+    <!-- Front Caster Wheel -->
+    <link name="qian_caster">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <sphere radius="${0.02*scale}"/>
+            </geometry>
+            <material name="white">
+                <color rgba="1.0 1.0 1.0 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <!-- Joints (????????) -->
+
+
+    <joint name="caster_link" type="fixed">
+        <origin xyz="-0.15 0.0 -0.05" rpy="0.0 0.0 0.0"/>
+        <axis xyz="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="qian_caster"/>
+    </joint>
+
+    <joint name="right_wheel_joint" type="continuous">
+        <origin xyz="0.03 0.11 -0.03" rpy="0.0 0.0 0.0"/>
+        <axis xyz="0.0 1.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="you_wheel_link"/>
+    </joint>
+
+    <joint name="left_wheel_joint" type="continuous">
+        <origin xyz="0.03 -0.12 -0.03" rpy="0.0 0.0 0.0"/>
+        <axis xyz="0.0 1.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="zuo_wheel_link"/>
+    </joint>
+
+    <joint name="laser_joint" type="fixed">
+        <origin xyz="0.0 0.0 ${0.01*scale}" rpy="0.0 0.0 0.0"/>
+        <axis xyz="0.0 0.0 0.0"/>
+        <parent link="lase_support_link"/>
+        <child link="laser"/>
+    </joint>
+
+    <joint name="lase_link_joint" type="fixed">
+        <origin xyz="0.12 0.0 0.04" rpy="0.0 0.0 0.0"/>
+        <axis xyz="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="lase_support_link"/>
+    </joint>
+
+    <joint name="hs_joint" type="fixed">
+        <origin xyz="-0.03 0.0 0.07" rpy="0.0 0.0 0.0"/>
+        <parent link="sc_base_link"/>
+        <child link="hp_link"/>
+        <axis xyz="0.0 0.0 0.0"/>
+    </joint>
+
+    <joint name="base_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="sc_base_link"/>
+        <origin xyz="-0.05 0.0 0.05" rpy="0.0 0.0 0.0"/>
+        <axis xyz="0 0 0"/>
+    </joint>
+
+</robot>
