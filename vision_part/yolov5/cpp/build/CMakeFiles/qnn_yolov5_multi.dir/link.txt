@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/qnn_yolov5_multi.dir/qnn_yolov5_multi.cpp.o -o qnn_yolov5_multi   -L/usr/local/lib  -Wl,-rpath,/usr/local/lib -laidlite -lopencv_imgcodecs -lopencv_imgproc -lopencv_core -lpthread 
