@@ -1,13 +1,16 @@
-本项目嵌入式部分完成了串口的标准库重定向以及Micro库的重定向
+## 本项目嵌入式部分完成了串口的标准库重定向以及Micro库的重定向
+### 可以参考这篇文档https://blog.csdn.net/struggle_success/article/details/134621868
+<img width="618" height="268" alt="image" src="https://github.com/user-attachments/assets/18d9f861-0789-4b54-a522-f60bbdaf69c0" />
 
-本项目全部采用STM32CubeMX现代化HAL库开发
+## 本项目全部采用STM32CubeMX现代化HAL库开发
 
-STM32F407ZGT6实现HX711裸机移植
 
-STM32F407ZGT6实现DHT11移植
+## STM32F407ZGT6实现HX711裸机移植
 
-STM32F407ZGT6实现LCD V3屏幕移植
+## STM32F407ZGT6实现DHT11移植
 
-motor文件夹实现STM32F407ZGT6裸机编码器测速电机PWM驱动
+## STM32F407ZGT6实现LCD V3屏幕移植
 
-sensor_test_final实现所有传感器的整合以及驱动
+## motor文件夹实现STM32F407ZGT6裸机编码器测速电机PWM驱动
+
+## sensor_test_final实现所有传感器的整合以及驱动
