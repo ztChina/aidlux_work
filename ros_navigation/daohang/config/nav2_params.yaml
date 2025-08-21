@@ -1,0 +1,302 @@
+amcl:
+  ros__parameters:
+    use_sim_time: false
+    # ¡¾ºËÐÄÐÞ¸Ä1£ºÓÅ»¯ÔË¶¯Ä£ÐÍÔëÉù²ÎÊý£¬ÊÊÅäÐý×ªÎó²î¡¿
+    alpha1: 0.1  # Ðý×ªÊ±µÄ½Ç¶ÈÔëÉù£¨Ô­0.05 ¡ú ÊÊµ±Ôö´ó£¬Æ¥ÅäÊµ¼ÊÐý×ªÎó²î£©
+    alpha2: 0.1  # Æ½ÒÆÊ±µÄ½Ç¶ÈÔëÉù£¨Ô­0.05 ¡ú Ôö´ó£©
+    alpha3: 0.08  # Æ½ÒÆÊ±µÄ¾àÀëÔëÉù£¨Ô­0.05 ¡ú Î¢µ÷£©
+    alpha4: 0.08  # Ðý×ªÊ±µÄ¾àÀëÔëÉù£¨Ô­0.05 ¡ú Î¢µ÷£©
+    alpha5: 0.05  # ¶îÍâÔëÉù£¨±£³Ö²»±ä£©
+    base_frame_id: "base_link"
+    global_frame_id: "map"
+    odom_frame_id: "odom"
+    odom_model_type: "diff"  # ²îËÙ»úÆ÷ÈËÄ£ÐÍ£¨ÕýÈ·£©
+    min_particles: 1500  # ¡¾ÐÞ¸Ä¡¿Ôö¼ÓÁ£×ÓÊýÁ¿£¨Ô­1000 ¡ú 1500£¬Ìá¸ß¹À¼Æ¾«¶È£©
+    max_particles: 5000  # ±£³Ö²»±ä
+    laser_model_type: "likelihood_field"
+    laser_max_range: 8.0
+    laser_min_range: 0.12
+    # ¡¾ºËÐÄÐÞ¸Ä2£º½µµÍ¸üÐÂãÐÖµ£¬Ðý×ªÊ±¸üÆµ·±¸üÐÂÎ»×Ë¡¿
+    update_min_d: 0.03  # Æ½ÒÆ¸üÐÂãÐÖµ£¨Ô­0.05 ¡ú ¸üÐ¡£¬Ð¡Î»ÒÆÒ²¸üÐÂ£©
+    update_min_a: 0.05  # Ðý×ª¸üÐÂãÐÖµ£¨Ô­0.1 ¡ú ¸üÐ¡£¬Ð¡½Ç¶ÈÐý×ªÒ²¸üÐÂ£©
+    initial_pose:
+      x: 0.0
+      y: 0.0
+      yaw: 0.0
+    kld_err: 0.01
+    kld_z: 0.99
+    resample_interval: 1
+    transform_tolerance: 0.5
+    # ¡¾ÐÞ¸Ä3£ºµ÷ÕûÈ¨ÖØ»Ö¸´²ÎÊý£¬ÔöÇ¿Ðý×ªÊ±µÄÂ³°ôÐÔ¡¿
+    recovery_alpha_slow: 0.005  # ÂýËÙÈ¨ÖØ»Ö¸´£¨Ô­0.001 ¡ú Ôö´ó£¬¼Ó¿ì»Ö¸´£©
+    recovery_alpha_fast: 0.2    # ¿ìËÙÈ¨ÖØ»Ö¸´£¨Ô­0.1 ¡ú Ôö´ó£©
+    tf_broadcast: true
+    tf_buffer_time: 2.0
+    save_pose_rate: 0.5
+
+bt_navigator:
+  ros__parameters:
+    use_sim_time: false
+    global_frame: map
+    robot_base_frame: base_link
+    odom_topic: /odom
+    bt_loop_duration: 10
+    default_server_timeout: 20
+    wait_for_service_timeout: 1000
+    # 'default_nav_through_poses_bt_xml' and 'default_nav_to_pose_bt_xml' are use defaults:
+    # nav2_bt_navigator/navigate_to_pose_w_replanning_and_recovery.xml
+    # nav2_bt_navigator/navigate_through_poses_w_replanning_and_recovery.xml
+    # They can be set here or via a RewrittenYaml remap from a parent launch file to Nav2.
+    plugin_lib_names:
+      - nav2_compute_path_to_pose_action_bt_node
+      - nav2_compute_path_through_poses_action_bt_node
+      - nav2_smooth_path_action_bt_node
+      - nav2_follow_path_action_bt_node
+      - nav2_spin_action_bt_node
+      - nav2_wait_action_bt_node
+      - nav2_assisted_teleop_action_bt_node
+      - nav2_back_up_action_bt_node
+      - nav2_drive_on_heading_bt_node
+      - nav2_clear_costmap_service_bt_node
+      - nav2_is_stuck_condition_bt_node
+      - nav2_goal_reached_condition_bt_node
+      - nav2_goal_updated_condition_bt_node
+      - nav2_globally_updated_goal_condition_bt_node
+      - nav2_is_path_valid_condition_bt_node
+      - nav2_initial_pose_received_condition_bt_node
+      - nav2_reinitialize_global_localization_service_bt_node
+      - nav2_rate_controller_bt_node
+      - nav2_distance_controller_bt_node
+      - nav2_speed_controller_bt_node
+      - nav2_truncate_path_action_bt_node
+      - nav2_truncate_path_local_action_bt_node
+      - nav2_goal_updater_node_bt_node
+      - nav2_recovery_node_bt_node
+      - nav2_pipeline_sequence_bt_node
+      - nav2_round_robin_node_bt_node
+      - nav2_transform_available_condition_bt_node
+      - nav2_time_expired_condition_bt_node
+      - nav2_path_expiring_timer_condition
+      - nav2_distance_traveled_condition_bt_node
+      - nav2_single_trigger_bt_node
+      - nav2_goal_updated_controller_bt_node
+      - nav2_is_battery_low_condition_bt_node
+      - nav2_navigate_through_poses_action_bt_node
+      - nav2_navigate_to_pose_action_bt_node
+      - nav2_remove_passed_goals_action_bt_node
+      - nav2_planner_selector_bt_node
+      - nav2_controller_selector_bt_node
+      - nav2_goal_checker_selector_bt_node
+      - nav2_controller_cancel_bt_node
+      - nav2_path_longer_on_approach_bt_node
+      - nav2_wait_cancel_bt_node
+      - nav2_spin_cancel_bt_node
+      - nav2_back_up_cancel_bt_node
+      - nav2_assisted_teleop_cancel_bt_node
+      - nav2_drive_on_heading_cancel_bt_node
+      - nav2_is_battery_charging_condition_bt_node
+
+bt_navigator_navigate_through_poses_rclcpp_node:
+  ros__parameters:
+    use_sim_time: false
+
+bt_navigator_navigate_to_pose_rclcpp_node:
+  ros__parameters:
+    use_sim_time: false
+
+controller_server:
+  ros__parameters:
+    controller_plugins: ["FollowPath"]
+    base_local_planner: "dwb_core::DWBLocalPlanner"
+    progress_checker_required_movement_radius: 0.5
+    goal_checker_xy_goal_tolerance: 0.25
+    FollowPath:
+      plugin: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
+      desired_linear_vel: 0.5  # ×î´óÏßËÙ¶È£¨m/s£©
+      max_angular_vel: 1.5  # ¡¾ÐÞ¸Ä¡¿×î´ó½ÇËÙ¶È£¨Ô­2.0 ¡ú 1.5 rad/s£©
+      lookahead_dist: 0.6  # Ç°Õ°¾àÀë
+      min_lookahead_dist: 0.3
+      max_robot_pose_search_dist: 2.0  # ×î´óÂ·¾¶ËÑË÷¾àÀë
+      xy_goal_tolerance: 0.15
+    general_goal_checker:
+      stateful: True
+      plugin: "nav2_controller::SimpleGoalChecker"
+      xy_goal_tolerance: 0.10
+      yaw_goal_tolerance: 0.10
+    DWB:
+      acc_lim_x: 0.3
+      acc_lim_theta: 0.5
+      decel_lim_x: -0.5
+      max_vel_x: 0.5
+      min_vel_x: -0.3
+      max_vel_theta: 1.5  # ¡¾ÐÞ¸Ä¡¿DWB×î´óÐý×ª½ÇËÙ¶È£¨Ô­1.0 ¡ú 1.5 rad/s£©
+      min_vel_theta: -1.5  # ¡¾ÐÞ¸Ä¡¿DWB×îÐ¡Ðý×ª½ÇËÙ¶È£¨Ô­-1.0 ¡ú -1.5 rad/s£©
+      vx_samples: 20
+      vy_samples: 0
+      vtheta_samples: 40
+      sim_time: 1.0
+      scaling_speed: 0.25
+      use_rotate_to_heading: false
+   
+
+local_costmap:
+  local_costmap:
+    ros__parameters:
+      update_frequency: 8.0  # ¡¾ÐÞ¸Ä¡¿Ìá¸ß¾Ö²¿µØÍ¼¸üÐÂÆµÂÊ£¨Ô­5.0 ¡ú 8.0 Hz£©
+      publish_frequency: 2.0
+      transform_tolerance: 0.5
+      global_frame: odom
+      robot_base_frame: base_link
+      use_sim_time: false
+      rolling_window: true
+      width: 4  # ¡¾ÐÞ¸Ä¡¿Ôö´ó¾Ö²¿µØÍ¼·¶Î§£¨Ô­3 ¡ú 4Ã×£¬Ðý×ªÊ±¸ü¶à»·¾³²Î¿¼£©
+      height: 4
+      resolution: 0.05
+      robot_radius: 0.12
+      plugins: ["voxel_layer", "inflation_layer"]
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        cost_scaling_factor: 3.0
+        inflation_radius: 0.25
+      voxel_layer:
+        plugin: "nav2_costmap_2d::VoxelLayer"
+        enabled: True
+        publish_voxel_map: True
+        origin_z: 0.0
+        z_resolution: 0.05
+        z_voxels: 16
+        max_obstacle_height: 2.0
+        mark_threshold: 0
+        observation_sources: scan
+        scan:
+          topic: /scan
+          max_obstacle_height: 2.0
+          clearing: True
+          marking: True
+          data_type: "LaserScan"
+          raytrace_max_range: 3.5  # ¡¾ÐÞ¸Ä¡¿Ôö´ó¼¤¹â×·×Ù·¶Î§£¨Ô­3.0 ¡ú 3.5Ã×£©
+          raytrace_min_range: 0.0
+          obstacle_max_range: 3.0  # ¡¾ÐÞ¸Ä¡¿Ôö´óÕÏ°­Îï¼ì²â·¶Î§£¨Ô­2.5 ¡ú 3.0Ã×£©
+          obstacle_min_range: 0.0
+      static_layer:
+        plugin: "nav2_costmap_2d::StaticLayer"
+        map_subscribe_transient_local: True
+      always_send_full_costmap: True
+
+global_costmap:
+  global_costmap:
+    ros__parameters:
+      robot_radius: 0.12  # »úÆ÷ÈË°ë¾¶£¨ÐèÆ¥ÅäÊµ¼Ê³ß´ç£©
+      update_frequency: 1.0  # È«¾ÖµØÍ¼¸üÐÂÆµÂÊ£¨Hz£©
+      publish_frequency: 1.0
+      resolution: 0.05  # µØÍ¼·Ö±æÂÊ£¨Ã×/ÏñËØ£©
+      plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
+      inflation_layer:
+        inflation_radius: 0.25  # ÅòÕÍ°ë¾¶£¨±ÜÃâÅö×²£©
+        cost_scaling_factor: 3.0
+        
+map_server:
+  ros__parameters:
+    use_sim_time: false
+    yaml_filename: "/home/aidlux/shouji7/src/rplidar_ros/map/map.yaml"  # ÓëlaunchÎÄ¼þÂ·¾¶Ò»ÖÂ
+    topic_name: "/map"  # ÏÔÊ½Ö¸¶¨µØÍ¼»°ÌâÃû³Æ
+    # Overridden in launch by the "map" launch configuration or provided default value.
+    # To use in yaml, remove the default "map" value in the tb3_simulation_launch.py file & provide full path to map below.
+
+map_saver:
+  ros__parameters:
+    use_sim_time: false
+    save_map_timeout: 5.0
+    free_thresh_default: 0.25
+    occupied_thresh_default: 0.65
+    map_subscribe_transient_local: True
+
+planner_server:
+  ros__parameters:
+    expected_planner_frequency: 20.0
+    use_sim_time: false
+    planner_plugins: ["GridBased"]
+    GridBased:
+      plugin: "nav2_navfn_planner/NavfnPlanner"
+      tolerance: 1.0
+      use_astar: true
+      allow_unknown: true
+      use_final_approach_orientation: false  # ²»Ç¿ÖÆ×îÖÕ³¯Ïò
+
+smoother_server:
+  ros__parameters:
+    use_sim_time: false
+    smoother_plugins: ["simple_smoother"]
+    simple_smoother:
+      plugin: "nav2_smoother::SimpleSmoother"
+      tolerance: 1.0e-10
+      max_its: 1000
+      do_refinement: True
+
+behavior_server:
+  ros__parameters:
+    costmap_topic: local_costmap/costmap_raw
+    footprint_topic: local_costmap/published_footprint
+    cycle_frequency: 10.0
+    behavior_plugins: ["spin", "backup", "drive_on_heading", "assisted_teleop", "wait"]
+    spin:
+      plugin: "nav2_behaviors/Spin"
+    backup:
+      plugin: "nav2_behaviors/BackUp"
+    drive_on_heading:
+      plugin: "nav2_behaviors/DriveOnHeading"
+    wait:
+      plugin: "nav2_behaviors/Wait"
+    assisted_teleop:
+      plugin: "nav2_behaviors/AssistedTeleop"
+    global_frame: odom
+    robot_base_frame: base_link
+    transform_tolerance: 0.1
+    use_sim_time: false
+    simulate_ahead_time: 2.0
+    max_rotational_vel: 1.5  # ¡¾ÐÞ¸Ä¡¿ÐÐÎªÖ´ÐÐ×î´óÐý×ª½ÇËÙ¶È£¨Ô­1.0 ¡ú 1.5 rad/s£©
+    min_rotational_vel: 0.4  # ×îÐ¡Ðý×ª½ÇËÙ¶È±£³Ö²»±ä
+    rotational_acc_lim: 3.2
+
+robot_state_publisher:
+  ros__parameters:
+    use_sim_time: false
+
+waypoint_follower:
+  ros__parameters:
+    use_sim_time: false
+    loop_rate: 20
+    stop_on_failure: false
+    waypoint_task_executor_plugin: "wait_at_waypoint"
+    wait_at_waypoint:
+      plugin: "nav2_waypoint_follower::WaitAtWaypoint"
+      enabled: True
+      waypoint_pause_duration: 200
+
+velocity_smoother:
+  ros__parameters:
+    use_sim_time: false
+    smoothing_frequency: 20.0
+    scale_velocities: False
+    feedback: "OPEN_LOOP"
+    max_velocity: [0.26, 0.0, 1.5]  # ¡¾ÐÞ¸Ä¡¿×î´ó½ÇËÙ¶ÈÏÞÖÆ£¨Ô­1.0 ¡ú 1.5 rad/s£©
+    min_velocity: [-0.26, 0.0, -1.5]  # ¡¾ÐÞ¸Ä¡¿×îÐ¡½ÇËÙ¶ÈÏÞÖÆ£¨Ô­-1.0 ¡ú -1.5 rad/s£©
+    max_accel: [2.5, 0.0, 3.2]
+    max_decel: [-2.5, 0.0, -3.2]
+    odom_topic: "odom"
+    odom_duration: 0.1
+    deadband_velocity: [0.0, 0.0, 0.0]
+    velocity_timeout: 1.0
+    speed_lim_v: 0.5
+    speed_lim_w: 1.5  # ¡¾ÐÞ¸Ä¡¿½ÇËÙ¶ÈÉÏÏÞ£¨Ô­1.0 ¡ú 1.5 rad/s£©
+    accel_lim_v: 0.3
+    accel_lim_w: 0.5
+    decel_lim_v: -0.5
+    decel_lim_w: -0.5
+    frequency: 20.0
+
+odometry:
+  ros__parameters:
+    filter_velocity: true
+    # ¡¾ºËÐÄÐÞ¸Ä4£ºÔö´óÀï³Ì¼ÆÂË²¨´°¿Ú£¬Æ½»¬Ðý×ªÔëÉù¡¿
+    velocity_window_size: 10  # Ô­5 ¡ú 10£¬´°¿ÚÔ½´ó£¬ÂË²¨Ð§¹ûÔ½Ç¿£¨Æ½»¬¸ßÆµÔëÉù£©
