@@ -34,6 +34,7 @@
 
 ## 运行
 ### [ROS部分运行示例](https://github.com/ztChina/aidlux_work/blob/main/ros_navigation/README.md#%E5%90%AF%E5%8A%A8%E7%A4%BA%E4%BE%8B)
+### [语音交互部分](https://github.com/ztChina/aidlux_work/blob/main/Dialog-models-and-plugins/README.md#wukong%E8%AF%AD%E9%9F%B3%E4%BA%A4%E4%BA%92%E8%B0%83%E8%AF%95%E6%96%87%E6%A1%A3)
 
 
 
