@@ -18,9 +18,7 @@
 
 
 ## 系统架构
-```python
-# 图片
-```
+![image-20250821155459333](https://raw.githubusercontent.com/i37532/PicGo_PictureHome/main/Windows/image-20250821155459333.png)
 
 ## 环境及依赖配置
 - ROS相关环境配置及依赖安装见[相关文档](https://github.com/ztChina/aidlux_work/blob/main/ros_navigation/README.md)
