@@ -23,7 +23,7 @@
 ## 环境及依赖配置
 - ROS相关环境配置及依赖安装见[相关文档](https://github.com/ztChina/aidlux_work/blob/main/ros_navigation/README.md)
 - YOLO相关环境配置及依赖安装见[相关文档](https://github.com/ztChina/aidlux_work/blob/main/vision_part/README.md)
-- 语音1交互相关环境配置及依赖安装见[相关文档](https://github.com/ztChina/aidlux_work/blob/main/vision_part/README.md)
+- 语音1交互相关环境配置及依赖安装见[相关文档](https://github.com/ztChina/aidlux_work/blob/main/AI_part/readme.md)
 - 语音2交互功能相关环境配置及依赖安装见[相关文档](https://github.com/ztChina/aidlux_work/tree/main/Dialog-models-and-plugins)
 - STM32相关环境配置与原理图见[相关文档](https://github.com/ztChina/aidlux_work/blob/main/%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%83%A8%E5%88%86/readme.md)
 
