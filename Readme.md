@@ -1,5 +1,3 @@
-# 智能小车
-
 ## 目录
 * [项目介绍](#项目介绍)
 * [系统架构](#系统架构)
@@ -28,9 +26,11 @@
 - STM32相关环境配置与原理图见[相关文档](https://github.com/ztChina/aidlux_work/blob/main/%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%83%A8%E5%88%86/readme.md)
 
 ## 硬件配置
-```python
-# 硬件配置内容
-```
+<img width="1868" height="2685" alt="image" src="https://github.com/user-attachments/assets/eed177ba-76a4-4c57-ba35-083e387ba03f" />
+
+[可查看 xlsx文件](https://github.com/ztChina/aidlux_work/raw/main/硬件清单.xlsx)
+
+
 
 ## 运行
 ### [ROS部分运行示例](https://github.com/ztChina/aidlux_work/blob/main/ros_navigation/README.md#%E5%90%AF%E5%8A%A8%E7%A4%BA%E4%BE%8B)
