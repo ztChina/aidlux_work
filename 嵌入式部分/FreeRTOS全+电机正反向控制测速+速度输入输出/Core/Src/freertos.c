@@ -211,7 +211,7 @@ void MX_FREERTOS_Init(void) {
 //  DFROBOTHandle = osThreadNew(StartTask04, NULL, &DFROBOT_attributes);
 
 //  /* creation of BLE */
-//  BLEHandle = osThreadNew(StartTask05, NULL, &BLE_attributes);
+  BLEHandle = osThreadNew(StartTask05, NULL, &BLE_attributes);
 
 //  /* creation of UART_TASK */
 //  UART_TASKHandle = osThreadNew(StartTask06, NULL, &UART_TASK_attributes);
@@ -223,7 +223,7 @@ void MX_FREERTOS_Init(void) {
 //  myTask08Handle = osThreadNew(StartTask08, NULL, &myTask08_attributes);
 
 //  /* creation of motor */
-  motorHandle = osThreadNew(StartTask09, NULL, &motor_attributes);
+//  motorHandle = osThreadNew(StartTask09, NULL, &motor_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -269,88 +269,88 @@ void StartTask03(void *argument)
   /* Infinite loop */
   for(;;)
   {
-//   OLED_Clear();
-//	 OLED_ShowNum(0, 2, 2025, 4, 16);  // ���
-//   OLED_ShowCHinese(32, 2, 2);       // "��"
-//   OLED_ShowNum(48, 2, 7, 2, 16);    // �·�
-//   OLED_ShowCHinese(64, 2, 3);       // "��"
-//   OLED_ShowNum(80, 2, 23, 2, 16);   // ����
-//   OLED_ShowCHinese(96, 2, 4);       // "��"
-//   
-//   // ��ʾ�����У�Hello World!
-//   OLED_ShowString(0, 6, "Hello World!", 12);
-//   
-//   // ������ʾ1��
-//   HAL_Delay(1000);
-//   
-//   /* �ڶ�����ʾ */
-//   OLED_Clear(); // ����  
-//   OLED_ShowCHinese(0,  0, 5); // "��" 
-//   OLED_ShowCHinese(16, 0, 6); // "��"
-//   OLED_ShowCHinese(32, 0, 7); // "��"
-//   OLED_ShowCHinese(48, 0, 8); // "Ա"
-//	 OLED_ShowCHinese(32,4, 9); // "��" 
-//   OLED_ShowCHinese(48,4, 10); // "��"
-//   OLED_ShowCHinese(64,4, 11); // "��"
-//	    // ������ʾ1��
-//   HAL_Delay(1000);
-//   OLED_Clear(); // ����
-//	 OLED_ShowCHinese(0,  0, 5); // "��" 
-//   OLED_ShowCHinese(16, 0, 6); // "��"
-//   OLED_ShowCHinese(32, 0, 7); // "��"
-//   OLED_ShowCHinese(48, 0, 8); // "Ա"
-//	 OLED_ShowCHinese(32,4, 12); // "��" 
-//   OLED_ShowCHinese(48,4, 13); // "��"
-//   OLED_ShowCHinese(64,4, 14); // "��"
-//	    // ������ʾ1��
-//   HAL_Delay(1000);
-//	 OLED_Clear(); // ����
-//	 OLED_ShowCHinese(0,  0, 5); // "��" 
-//   OLED_ShowCHinese(16, 0, 6); // "��"
-//   OLED_ShowCHinese(32, 0, 7); // "��"
-//   OLED_ShowCHinese(48, 0, 8); // "Ա"
-//	 OLED_ShowCHinese(32,4, 15); // "��" 
-//   OLED_ShowCHinese(48,4, 16); // "��"
-//   OLED_ShowCHinese(64,4, 17); // "��"
-//	 
-//	    HAL_Delay(1000);
-//	 OLED_Clear(); // ����
-//	 OLED_ShowCHinese(0,  0, 5); // "��" 
-//   OLED_ShowCHinese(16, 0, 6); // "��"
-//   OLED_ShowCHinese(32, 0, 7); // "��"
-//   OLED_ShowCHinese(48, 0, 8); // "Ա"
-//	 OLED_ShowCHinese(48,4, 18); // "��" 
-//   OLED_ShowCHinese(64,4, 19); // "��"
+   OLED_Clear();
+	 OLED_ShowNum(0, 2, 2025, 4, 16);  // ���
+   OLED_ShowCHinese(32, 2, 2);       // "��"
+   OLED_ShowNum(48, 2, 7, 2, 16);    // �·�
+   OLED_ShowCHinese(64, 2, 3);       // "��"
+   OLED_ShowNum(80, 2, 23, 2, 16);   // ����
+   OLED_ShowCHinese(96, 2, 4);       // "��"
+   
+   // ��ʾ�����У�Hello World!
+   OLED_ShowString(0, 6, "Hello World!", 12);
+   
+   // ������ʾ1��
+   HAL_Delay(1000);
+   
+   /* �ڶ�����ʾ */
+   OLED_Clear(); // ����  
+   OLED_ShowCHinese(0,  0, 5); // "��" 
+   OLED_ShowCHinese(16, 0, 6); // "��"
+   OLED_ShowCHinese(32, 0, 7); // "��"
+   OLED_ShowCHinese(48, 0, 8); // "Ա"
+	 OLED_ShowCHinese(32,4, 9); // "��" 
+   OLED_ShowCHinese(48,4, 10); // "��"
+   OLED_ShowCHinese(64,4, 11); // "��"
+	    // ������ʾ1��
+   HAL_Delay(1000);
+   OLED_Clear(); // ����
+	 OLED_ShowCHinese(0,  0, 5); // "��" 
+   OLED_ShowCHinese(16, 0, 6); // "��"
+   OLED_ShowCHinese(32, 0, 7); // "��"
+   OLED_ShowCHinese(48, 0, 8); // "Ա"
+	 OLED_ShowCHinese(32,4, 12); // "��" 
+   OLED_ShowCHinese(48,4, 13); // "��"
+   OLED_ShowCHinese(64,4, 14); // "��"
+	    // ������ʾ1��
+   HAL_Delay(1000);
+	 OLED_Clear(); // ����
+	 OLED_ShowCHinese(0,  0, 5); // "��" 
+   OLED_ShowCHinese(16, 0, 6); // "��"
+   OLED_ShowCHinese(32, 0, 7); // "��"
+   OLED_ShowCHinese(48, 0, 8); // "Ա"
+	 OLED_ShowCHinese(32,4, 15); // "��" 
+   OLED_ShowCHinese(48,4, 16); // "��"
+   OLED_ShowCHinese(64,4, 17); // "��"
+	 
+	    HAL_Delay(1000);
+	 OLED_Clear(); // ����
+	 OLED_ShowCHinese(0,  0, 5); // "��" 
+   OLED_ShowCHinese(16, 0, 6); // "��"
+   OLED_ShowCHinese(32, 0, 7); // "��"
+   OLED_ShowCHinese(48, 0, 8); // "Ա"
+	 OLED_ShowCHinese(48,4, 18); // "��" 
+   OLED_ShowCHinese(64,4, 19); // "��"
 
-//	    HAL_Delay(1000);
-//	 OLED_Clear(); // ����
-//	 OLED_ShowCHinese(0,  0, 5); // "��" 
-//   OLED_ShowCHinese(16, 0, 6); // "��"
-//   OLED_ShowCHinese(32, 0, 7); // "��"
-//   OLED_ShowCHinese(48, 0, 8); // "Ա"
-//	 OLED_ShowCHinese(32,4, 20); // "��" 
-//   OLED_ShowCHinese(48,4, 21); // "��"
-//   OLED_ShowCHinese(64,4, 22); // "��"
-//	    HAL_Delay(1000);
-//	 OLED_Clear(); // ����
-//	 OLED_ShowCHinese(0,  0, 5); // "��" 
-//   OLED_ShowCHinese(16, 0, 6); // "��"
-//   OLED_ShowCHinese(32, 0, 7); // "��"
-//   OLED_ShowCHinese(48, 0, 8); // "Ա"
-//	 OLED_ShowCHinese(48,4, 23); // "��" 
-//   OLED_ShowCHinese(64,4, 24); // "��"
+	    HAL_Delay(1000);
+	 OLED_Clear(); // ����
+	 OLED_ShowCHinese(0,  0, 5); // "��" 
+   OLED_ShowCHinese(16, 0, 6); // "��"
+   OLED_ShowCHinese(32, 0, 7); // "��"
+   OLED_ShowCHinese(48, 0, 8); // "Ա"
+	 OLED_ShowCHinese(32,4, 20); // "��" 
+   OLED_ShowCHinese(48,4, 21); // "��"
+   OLED_ShowCHinese(64,4, 22); // "��"
+	    HAL_Delay(1000);
+	 OLED_Clear(); // ����
+	 OLED_ShowCHinese(0,  0, 5); // "��" 
+   OLED_ShowCHinese(16, 0, 6); // "��"
+   OLED_ShowCHinese(32, 0, 7); // "��"
+   OLED_ShowCHinese(48, 0, 8); // "Ա"
+	 OLED_ShowCHinese(48,4, 23); // "��" 
+   OLED_ShowCHinese(64,4, 24); // "��"
 
-//	  HAL_Delay(1000);
-//	 OLED_Clear(); // ����
-//	 OLED_ShowCHinese(0,  0, 5); // "��" 
-//   OLED_ShowCHinese(16, 0, 6); // "��"
-//   OLED_ShowCHinese(32, 0, 7); // "��"
-//   OLED_ShowCHinese(48, 0, 8); // "Ա"
-//	 OLED_ShowCHinese(32,4, 25); // "��" 
-//   OLED_ShowCHinese(48,4, 26); // "��"
-//   OLED_ShowCHinese(64,4, 27); // "��"	
+	  HAL_Delay(1000);
+	 OLED_Clear(); // ����
+	 OLED_ShowCHinese(0,  0, 5); // "��" 
+   OLED_ShowCHinese(16, 0, 6); // "��"
+   OLED_ShowCHinese(32, 0, 7); // "��"
+   OLED_ShowCHinese(48, 0, 8); // "Ա"
+	 OLED_ShowCHinese(32,4, 25); // "��" 
+   OLED_ShowCHinese(48,4, 26); // "��"
+   OLED_ShowCHinese(64,4, 27); // "��"	
     osDelay(10);
-//		OLED_Clear(); // ����
+		OLED_Clear(); // ����
   }
   /* USER CODE END StartTask03 */
 }
@@ -391,9 +391,9 @@ void StartTask05(void *argument)
   /* Infinite loop */
   for(;;)
   {
-//				HAL_UART_Receive_IT(&huart2, &ble_rx_data, 1);  
-//				printf("System Ready. Waiting for Bluetooth Data...\r\n");		
-//				
+				HAL_UART_Receive_IT(&huart2, &ble_rx_data, 1);  
+				printf("System Ready. Waiting for Bluetooth Data...\r\n");		
+				
     osDelay(1);
   }
   /* USER CODE END StartTask05 */
@@ -589,12 +589,12 @@ void StartTask08(void *argument)
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
-void StartTask09(void *argument)
-{
-	SerialCommand_ProcessChar(rx_data);
-	HAL_UART_Receive_IT(&huart3, &rx_data, 1);
-	osDelay(1000);
-}
+//void StartTask09(void *argument)
+//{
+//	SerialCommand_ProcessChar(rx_data);
+//	HAL_UART_Receive_IT(&huart3, &rx_data, 1);
+//	osDelay(1000);
+//}
 
 /* USER CODE END Application */
 

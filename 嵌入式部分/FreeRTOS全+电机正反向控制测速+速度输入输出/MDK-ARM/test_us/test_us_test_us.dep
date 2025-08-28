@@ -1,7 +1,7 @@
 Dependencies for Project 'test_us', Target 'test_us': (DO NOT MODIFY !)
 CompilerVersion: 5060750::V5.06 update 6 (build 750)::ARMCC
 F (startup_stm32f407xx.s)(0x68871454)(--cpu Cortex-M4.fp.sp --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1" -I ../Drivers/CMSIS/Include-I.\RTE\_test_us-IE:\STM32\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include--pd "__UVISION_VERSION SETA 529" --pd "_RTE_ SETA 1" --pd "STM32F407xx SETA 1"--list startup_stm32f407xx.lst --xref -o test_us\startup_stm32f407xx.o --depend test_us\startup_stm32f407xx.d)
-F (../Core/Src/main.c)(0x68899356)(--c99 -c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../MDK-ARM -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F-I.\RTE\_test_us-IE:\STM32\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o test_us\main.o --omf_browse test_us\main.crf --depend test_us\main.d)
+F (../Core/Src/main.c)(0x68AFF4A4)(--c99 -c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../MDK-ARM -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F-I.\RTE\_test_us-IE:\STM32\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o test_us\main.o --omf_browse test_us\main.crf --depend test_us\main.d)
 I (../Core/Inc/main.h)(0x6874C68E)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x686C7676)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x6878C8CA)
@@ -55,7 +55,7 @@ I (../Core/Inc/tim.h)(0x6875BCA6)
 I (../Core/Inc/usart.h)(0x68808E50)
 I (E:\STM32\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
 I (../Core/Inc/gpio.h)(0x6874C68E)
-I (../MDK-ARM/motor_control.h)(0x68905AAD)
+I (../MDK-ARM/motor_control.h)(0x68905AAC)
 I (E:\STM32\ARM\ARMCC\include\string.h)(0x5D9AD218)
 I (E:\STM32\ARM\ARMCC\include\stdlib.h)(0x5D9AD21A)
 I (../MDK-ARM/serial_command.h)(0x68808D0C)
@@ -104,7 +104,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x686C7676)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x686C7676)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x686C7676)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x686C7676)
-F (../Core/Src/freertos.c)(0x6889BB76)(--c99 -c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../MDK-ARM -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F-I.\RTE\_test_us-IE:\STM32\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o test_us\freertos.o --omf_browse test_us\freertos.crf --depend test_us\freertos.d)
+F (../Core/Src/freertos.c)(0x68AFF4A4)(--c99 -c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../MDK-ARM -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F-I.\RTE\_test_us-IE:\STM32\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o test_us\freertos.o --omf_browse test_us\freertos.crf --depend test_us\freertos.d)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x686C7638)
 I (E:\STM32\ARM\ARMCC\include\stddef.h)(0x5D9AD218)
 I (E:\STM32\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
@@ -163,7 +163,7 @@ I (E:\STM32\ARM\ARMCC\include\stdbool.h)(0x5D9AD218)
 I (.\RTE\_test_us\../../bsp_hx711.h)(0x68803F40)
 I (.\RTE\_test_us\../../ds18b20.h)(0x687E1820)
 I (E:\STM32\ARM\ARMCC\include\string.h)(0x5D9AD218)
-I (../MDK-ARM/motor_control.h)(0x68905AAD)
+I (../MDK-ARM/motor_control.h)(0x68905AAC)
 I (E:\STM32\ARM\ARMCC\include\stdlib.h)(0x5D9AD21A)
 I (../MDK-ARM/serial_command.h)(0x68808D0C)
 I (.\RTE\_test_us\../../dht11.h)(0x6878A056)
@@ -1392,7 +1392,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x686C7676)
 I (../Core/Inc/main.h)(0x6874C68E)
 F (.\bsp_hx711.h)(0x68803F40)()
 F (.\motor_control.c)(0x68905DE2)(--c99 -c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../MDK-ARM -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F-I.\RTE\_test_us-IE:\STM32\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o test_us\motor_control.o --omf_browse test_us\motor_control.crf --depend test_us\motor_control.d)
-I (motor_control.h)(0x68905AAD)
+I (motor_control.h)(0x68905AAC)
 I (../Core/Inc/main.h)(0x6874C68E)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x686C7676)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x6878C8CA)
@@ -1433,7 +1433,7 @@ I (../Core/Inc/tim.h)(0x6875BCA6)
 I (../Core/Inc/gpio.h)(0x6874C68E)
 I (E:\STM32\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
 I (E:\STM32\ARM\ARMCC\include\math.h)(0x5D9AD212)
-F (.\motor_control.h)(0x68905AAD)()
+F (.\motor_control.h)(0x68905AAC)()
 F (.\DFRobot.c)(0x68789F78)(--c99 -c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../MDK-ARM -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F-I.\RTE\_test_us-IE:\STM32\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o test_us\dfrobot.o --omf_browse test_us\dfrobot.crf --depend test_us\dfrobot.d)
 I (DFRobot.h)(0x687E1696)
 I (../Core/Inc/adc.h)(0x6875B13C)
@@ -1556,7 +1556,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x686C7676)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x686C7676)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x686C7676)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x686C7676)
-I (motor_control.h)(0x68905AAD)
+I (motor_control.h)(0x68905AAC)
 I (../Core/Inc/usart.h)(0x68808E50)
 I (E:\STM32\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
 I (E:\STM32\ARM\ARMCC\include\string.h)(0x5D9AD218)

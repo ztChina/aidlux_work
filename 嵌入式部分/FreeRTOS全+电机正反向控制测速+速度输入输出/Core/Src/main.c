@@ -380,16 +380,16 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-    if (huart->Instance == USART3) {
-        SerialCommand_ProcessChar(rx_data);
-        HAL_UART_Receive_IT(&huart3, &rx_data, 1);  // 继续接收
-    } else if (huart->Instance == USART2) {
-        BLE_UART_ReceiveCallback(ble_rx_data);
-        HAL_UART_Receive_IT(&huart2, &ble_rx_data, 1);  // 继续接收
-    }
-}
+//void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+//{
+//    if (huart->Instance == USART3) {
+//        SerialCommand_ProcessChar(rx_data);
+//        HAL_UART_Receive_IT(&huart3, &rx_data, 1);  // 继续接收
+//    } else if (huart->Instance == USART2) {
+//        BLE_UART_ReceiveCallback(ble_rx_data);
+//        HAL_UART_Receive_IT(&huart2, &ble_rx_data, 1);  // 继续接收
+//    }
+//}
 
 /* USER CODE END 4 */
 
