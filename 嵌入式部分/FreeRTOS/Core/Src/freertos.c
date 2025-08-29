@@ -208,9 +208,9 @@ const osThreadAttr_t myTask07_attributes = {
   .priority = (osPriority_t) osPriorityLow,
 };
 /* Definitions for myTask08 */
-osThreadId_t myTask08Handle;
+osThreadId_t WeightHandle;
 const osThreadAttr_t myTask08_attributes = {
-  .name = "myTask08",
+  .name = "Weight",
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityLow,
 };
@@ -270,6 +270,7 @@ const osThreadAttr_t pump_attributes = {
 //const osMessageQueueAttr_t pumpQueue_attributes = {
 //  .name = "pumpQueue"
 //};
+
 
 
 
@@ -342,30 +343,36 @@ void MX_FREERTOS_Init(void) {
 	};
 	robotStatusMutexHandle = osMutexNew(&robotStatusMutex_attributes);
 	tempMutexHandle = osMutexNew(&tempMutex_attributes);
-	
+	// 通过闪灯，确保进入FreeRTOS控制
 //	defaultTask_LEDHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_LED_attributes);
-
+	// 启动电机控制
 //  motorHandle = osThreadNew(start_motor_task, NULL, &motor_attributes);
 //  /* USER CODE END RTOS_THREADS */
-//	
+	
 //	  /* USER CODE BEGIN RTOS_THREADS */
- collectHandle = osThreadNew(start_collect_task, NULL, &collect_attributes);
+	// 读取温度，土壤湿度，水位线，电机速度等
+// collectHandle = osThreadNew(start_collect_task, NULL, &collect_attributes);
 //  /* USER CODE END RTOS_THREADS */
-
+	
 //	  /* USER CODE BEGIN RTOS_THREADS */
 //  comHandle = osThreadNew(start_com_task, NULL, &com_attributes);
 //  /* USER CODE END RTOS_THREADS */
 //	
 //	/* USER CODE BEGIN RTOS_THREADS */
+	// 读取温度任务
 //	tempTaskHandle = osThreadNew(start_temp_task, NULL, &tempTask_attributes);
 ///* USER CODE END RTOS_THREADS */
 //  /* USER CODE BEGIN RTOS_EVENTS */
+	// OLED测试
 //	oledHandle = osThreadNew(start_oled_debug_task, NULL, &oled_attributes);
-//	
+//	// 泵水任务
 //	pumpHandle = osThreadNew(start_pump_task, NULL, &pump_attributes);
 //	pidHandle = osThreadNew(start_pid_task, NULL, &pid_attributes);
   /* add events, ... */
-//  BLEHandle = osThreadNew(StartTask08, NULL, &myTask08_attributes);
+//	// 蓝牙测试
+//  BLEHandle = osThreadNew(StartTask05, NULL, &BLE_attributes);
+	// 压力传感器测试
+//  WeightHandle = osThreadNew(StartTask08, NULL, &myTask08_attributes);
   /* USER CODE END RTOS_EVENTS */
 }
 
@@ -416,7 +423,7 @@ void start_collect_task(void *argument)
 //    tick += temp_time;
     // 2. 读取土壤湿度
     uint32_t adc_value = Read_Soil_Moisture();
-		printf("adc_value: %d \r\n", adc_value);
+//		printf("adc_value: %d \r\n", adc_value);
     float humidity = Get_Soil_Humidity(adc_value); // 返回百分比
 		uint32_t hx711_raw = latest_weight;
     float water_level = 0.0f;
